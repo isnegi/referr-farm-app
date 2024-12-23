@@ -1,5 +1,5 @@
-import AppFooter from "./components/common/app-footer";
-import AppHeader from "./components/common/app-header"
+import AppFooter from "./_components/common/app-footer";
+import AppHeader from "./_components/common/app-header"
 
 export default function Home() {
   return (
