@@ -9,7 +9,7 @@ export default function AppHeader() {
             &nbsp;|&nbsp;
             <span><Link href={'/contact-us'}>Contact Us</Link></span>
             &nbsp;|&nbsp;
-            <span><Link href={'/register'}>Register</Link></span>
+            <span><Link href={'/sign-in'}>Sign In</Link></span>
             &nbsp;|&nbsp;
             <span><Link href={'/dashboard'}>Dashboard</Link></span>
         </div>
