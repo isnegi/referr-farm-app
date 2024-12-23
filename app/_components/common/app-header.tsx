@@ -10,7 +10,7 @@ export default function AppHeader() {
                     <Image
                         src={logo}
                         width={72}
-                        alt="Picture of the author" />
+                        alt="Referr Farm logo" />
 
                 </Link>
             </div>

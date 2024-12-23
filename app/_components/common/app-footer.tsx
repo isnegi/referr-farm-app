@@ -14,7 +14,7 @@ export default function AppFooter() {
             <Image
               src={logo}
               width={48}
-              alt="Picture of the author" />
+              alt="Referr Farm logo" />
             </Link>
           </div>
           <div className="flex gap-6">

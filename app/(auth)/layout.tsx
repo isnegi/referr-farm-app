@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import Image from 'next/image';
+import logo from '@/public/assets/images/logo.png';
 
 export const metadata: Metadata = {
   title: "Referr Farm | Let's get started",
@@ -13,8 +15,17 @@ export default function AuthLayout({
 }>) {
   return (
     <>
-      {children}
-      <footer>Join us today</footer>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <Image
+            src={logo}
+            className="mx-auto h-10 w-auto"
+            width={72}
+            alt="Referr Farm logo" />
+        </div>
+
+        {children}
+      </div>
     </>
   );
 }
