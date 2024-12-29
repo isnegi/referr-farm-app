@@ -1,5 +1,7 @@
+import Image from "next/image";
 import AppFooter from "./_components/common/app-footer";
 import AppHeader from "./_components/common/app-header"
+import heroImg from '@/public/assets/images/hero-img.png';
 
 export default function Home() {
   return (
@@ -23,7 +25,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <img src="https://demo.themesberg.com/landwind/images/hero.png" alt="hero image" />
+          <Image width={600} src={heroImg} alt="hero image" />
         </div>
       </div>
 
