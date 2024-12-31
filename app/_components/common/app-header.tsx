@@ -1,8 +1,14 @@
+'use client'
+
 import Link from "next/link";
 import Image from 'next/image';
 import logo from '@/public/assets/images/logo.png';
+import { useRouter } from "next/navigation";
+import { LogIn, MoveRight } from "lucide-react";
 
 export default function AppHeader() {
+    const router = useRouter();
+
     return (
         <div className="flex h-16 items-center justify-between">
             <div>
@@ -14,13 +20,20 @@ export default function AppHeader() {
 
                 </Link>
             </div>
-            <div>
-                <span className="mr-8"><Link href={'/sign-in'} className="text-blue-500 visited:text-blue-900 hover:text-blue-700">Sign In</Link></span>
+            <div className="flex items-center">
+                <button
+                    onClick={() => router.push('/sign-in')}
+                    className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md">
+                    Sign In&nbsp;<LogIn size={22} />
+                </button>
+
                 <button
                     type="button"
-                    className="inline-flex items-center rounded-md bg-indigo-600 px-6 py-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    onClick={() => router.push('/register')}
+                    className="flex items-center capitalize rounded-md bg-[#5AE3A9] px-6 py-2 text-white shadow-sm hover:bg-[#46a67d]"
                 >
-                    Register
+                    get started&nbsp;
+                    {/* <MoveRight size={22} /> */}
                 </button>
             </div>
         </div>
