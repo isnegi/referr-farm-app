@@ -11,10 +11,10 @@ export default function AppFooter() {
         <div className="flex h-full items-center justify-between gap-2 py-6 md:flex-col md:items-start md:justify-between md:space-y-6 md:border-none md:py-0">
           <div>
             <Link href="/">
-            <Image
-              src={logo}
-              width={48}
-              alt="Referr Farm logo" />
+              <Image
+                src={logo}
+                width={48}
+                alt="Referr Farm logo" />
             </Link>
           </div>
           <div className="flex gap-6">
