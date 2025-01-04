@@ -1,10 +1,12 @@
 'use client'
 
+import LoadingSpinner from "@/app/_components/common/loading-spinner";
 import { Button } from "@/components/ui/button";
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Key, LogIn } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -13,8 +15,9 @@ import { z } from "zod";
 const RequestStepFormSchema = z.object({
     identifier: z
         .string()
-        .min(1, { message: "Email field must not be blank." })
-        .email("Provided email is not valid.")
+        .regex(/^\d{10}$/, {
+        message: "Phone number must be exactly 10 digits.",
+        }),
 })
 
 const VerifyStepFormSchema = z.object({
@@ -107,12 +110,17 @@ export default function SignInForm() {
                                 <FormItem>
                                     <FormLabel>Phone number</FormLabel>
                                     <FormControl>
-                                        <Input
-                                            type="text"
-                                            placeholder="e.g., 0000-000-000"
-                                            {...field}
-                                        />
-
+                                        <div className="relative">
+                                            <div className="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none text-sm">
+                                                <span className="text-gray-500 font-bold">+91</span>
+                                            </div>
+                                            <Input
+                                                className="block w-full px-10"
+                                                type="tel"
+                                                placeholder=" 0000-000-000"
+                                                {...field}
+                                            />
+                                        </div>
                                     </FormControl>
                                     <FormDescription>
                                         Please note: Only the phone number used during registration will be accepted.
@@ -122,7 +130,8 @@ export default function SignInForm() {
                             )}
                         />
                         <Button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full" type="submit">
-                            {loading ? 'Requesting...' : 'Request OTP'}
+                            {loading ? 'Sending' : 'Send OTP'}
+                            {loading ? <LoadingSpinner /> : <Key />}
                         </Button>
                     </form>
                     <hr />
@@ -168,14 +177,14 @@ export default function SignInForm() {
                                 )}
                             />
                             <Button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full" type="submit">
-                                {loading ? 'Validating OTP...' : 'Sign In'}
+                                {loading ? 'Validating' : 'Verify'}
+                                {loading ? <LoadingSpinner /> : <LogIn/>}
                             </Button>
                         </form>
                     </FormProvider>
                 </div>
             )}
         </div>
-
     )
 
 }

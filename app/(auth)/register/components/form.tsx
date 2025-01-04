@@ -1,5 +1,6 @@
 'use client'
 
+import LoadingSpinner from "@/app/_components/common/loading-spinner";
 import { XComboBox } from "@/components/private/x-combo-box";
 import { Button } from "@/components/ui/button";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -7,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Ghost, User2 } from "lucide-react";
+import { Ghost, User2, Zap } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
@@ -22,7 +23,9 @@ const CandidateSchema = z.object({
         }),
     ph_no: z
         .string()
-        .regex(/^\d{10}$/, "Phone number must be a 10-digit numeric value."),
+        .regex(/^\d{10}$/, {
+            message: "Phone number must be exactly 10 digits.",
+        }),
     full_name: z
         .string()
         .min(4, "Full name must be at least 4 characters long.")
@@ -49,6 +52,14 @@ export default function RegisterForm() {
 
     const candidateForm = useForm<z.infer<typeof CandidateSchema>>({
         resolver: zodResolver(CandidateSchema),
+        defaultValues: {
+            user_type: "referrer",
+            ph_no: "",
+            full_name: "",
+            city: "",
+            gender: "",
+        },
+
     })
 
     const onSubmit = async (data: z.infer<typeof CandidateSchema>) => {
@@ -67,8 +78,6 @@ export default function RegisterForm() {
             setLoading(false);
         }
     }
-
-
 
     return (
         <div>
@@ -164,12 +173,24 @@ export default function RegisterForm() {
                                     <FormItem>
                                         <FormLabel className="block text-sm/6 font-medium text-gray-900">Phone number</FormLabel>
                                         <FormControl className="mt-2">
-                                            <Input
+                                            <div className="relative">
+                                                <div className="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none text-sm">
+                                                    <span className="text-gray-500 font-bold">+91</span>
+                                                </div>
+                                                <Input
+                                                    className="block w-full px-10"
+                                                    type="tel"
+                                                    placeholder=" 0000-000-000"
+                                                    {...field}
+                                                />
+                                            </div>
+
+                                            {/* <Input
                                                 type="text"
                                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                                                 placeholder="e.g., 0000-000-000"
                                                 {...field}
-                                            />
+                                            /> */}
 
                                         </FormControl>
                                         <FormMessage />
@@ -264,19 +285,20 @@ export default function RegisterForm() {
                     </div>
                     <div className="mt-6 flex items-center justify-start gap-x-6">
                         <Button type="submit" className="rounded-md bg-[#5AE3A9] py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            {loading ? 'Submitting...' : 'Save & continue'}
+                            {loading ? 'Submitting' : 'Register now'}
+                            { loading ? <LoadingSpinner /> : <Zap /> }
                         </Button>
                         <button type="button" className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md">
-                            Clear data
+                            Reset
                         </button>
                     </div>
                     <div className="mt-6 text-xs">
-                    By creating an account, you agree to our&nbsp;
-                            <Link href="/privacy-and-cookies" className="text-[#5AE3A9] underline" target="_blank">
-                                Privacy &amp; Cookie Policy
-                            </Link> and accept our <Link href="/terms-of-use" className="text-[#5AE3A9] underline" target="_blank">
-                                Terms of use
-                            </Link>.
+                        By creating an account, you agree to our&nbsp;
+                        <Link href="/privacy-and-cookies" className="text-[#5AE3A9] underline" target="_blank">
+                            Privacy &amp; Cookie Policy
+                        </Link> and accept our <Link href="/terms-of-use" className="text-[#5AE3A9] underline" target="_blank">
+                            Terms of use
+                        </Link>. Also, you agree to receive updates from ReferrFarm. You can opt out anytime by clicking the unsubscribe link in our messages or following the instructions in our Terms.
                     </div>
                 </form>
             </FormProvider>
