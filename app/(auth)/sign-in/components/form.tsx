@@ -130,12 +130,13 @@ export default function SignInForm() {
                         Join with Google
                     </Button>
                     <div className="mt-4 text-center text-sm">
-                        By signing in you are agreeing to our policies. Read {" "}
+                        Don't have an account? <Link href="/register">Register here</Link>
+                        {/* By signing in you are agreeing to our policies. Read {" "}
                         <Link href="/privacy-and-cookies" className="underline">
                             Privacy &amp; Cookies
                         </Link> and <Link href="/terms-of-use" className="underline">
                             Terms of use
-                        </Link>
+                        </Link> */}
                     </div>
                 </FormProvider>
             )}

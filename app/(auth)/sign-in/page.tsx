@@ -15,7 +15,7 @@ export default function SignIn() {
             <p className="mb-10 text-6xl font-black">Share opportunities;<br/><br/> Network & Grow together.</p>
             <hr />
             <div className="text-gray-500 text-xs">
-              <Link href="/" className="flex items-end">
+              <Link href="/" className="flex items-end inline-flex">
                 <Image
                   src={logo}
                   className="h-10 w-auto mt-4"
