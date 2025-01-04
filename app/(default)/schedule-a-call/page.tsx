@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ScheduleACallForm from "./components/form";
 import mainAsset from '@/public/assets/images/schedule-a-call.png';
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function ScheduleACall() {
 
@@ -25,7 +26,11 @@ export default function ScheduleACall() {
           </div>
         </div>
         <div className="col-span-2">
-          <ScheduleACallForm />
+          <Card>
+            <CardContent>
+              <ScheduleACallForm />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
