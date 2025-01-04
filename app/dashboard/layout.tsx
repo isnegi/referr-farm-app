@@ -4,6 +4,7 @@ import AppHeader from "../_components/common/app-header";
 import AppFooter from "../_components/common/app-footer";
 import AppHeaderSecure from "../_components/common/app-header-secure";
 import AppFooterSecure from "../_components/common/app-footer-secure";
+import AppHeaderChildSecure from "../_components/dashboard/app-header-child-secure";
 
 export const metadata: Metadata = {
   title: "Dashboard | Home",
@@ -18,7 +19,14 @@ export default function DashboardLayout({
   return (
     <div className="mx-auto">
       <AppHeaderSecure />
-      {children}
+      <AppHeaderChildSecure />
+
+      <div className="bg-white py-6">
+        <div className="flex h-16 items-center justify-between max-w-7xl mx-auto">
+          {children}
+        </div>
+      </div>
+
       <AppFooterSecure />
     </div>
 
