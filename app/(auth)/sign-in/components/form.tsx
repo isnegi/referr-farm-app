@@ -99,23 +99,23 @@ export default function SignInForm() {
             {error && <p className="text-red-500">{error}</p>}
             {currentStep === 'request' && (
                 <FormProvider {...requestStepForm}>
-                    <form onSubmit={requestStepForm.handleSubmit(initOtpRequest)} className="space-y-6">
+                    <form onSubmit={requestStepForm.handleSubmit(initOtpRequest)} className="space-y-6 mb-4">
                         <FormField
                             control={requestStepForm.control}
                             name="identifier"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Your e-mail address:</FormLabel>
+                                    <FormLabel>Phone number</FormLabel>
                                     <FormControl>
                                         <Input
                                             type="text"
-                                            placeholder="me@example.com"
+                                            placeholder="e.g., 0000-000-000"
                                             {...field}
                                         />
 
                                     </FormControl>
                                     <FormDescription>
-                                        You'll receiving our offers and account related communications via this email only.
+                                        Please note: Only the phone number used during registration will be accepted.
                                     </FormDescription>
                                     <FormMessage />
                                 </FormItem>
@@ -126,11 +126,8 @@ export default function SignInForm() {
                         </Button>
                     </form>
                     <hr />
-                    <Button variant="outline" disabled className="w-full">
-                        Join with Google
-                    </Button>
                     <div className="mt-4 text-center text-sm">
-                        Don't have an account? <Link href="/register">Register here</Link>
+                        Don't have an account? <Link href="/register" className="text-[#5AE3A9] underline">Register here</Link>
                         {/* By signing in you are agreeing to our policies. Read {" "}
                         <Link href="/privacy-and-cookies" className="underline">
                             Privacy &amp; Cookies

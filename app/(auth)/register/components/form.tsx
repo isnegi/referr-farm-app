@@ -261,16 +261,6 @@ export default function RegisterForm() {
                                 )}
                             />
                         </div>
-
-                        <div className="sm:col-span-6 col-span-6 text-xs">
-                            By creating an account, you agree to the&nbsp;
-                            <Link href="/privacy-and-cookies" className="underline">
-                                Privacy &amp; Cookies
-                            </Link> and <Link href="/terms-of-use" className="underline">
-                                Terms of use
-                            </Link>
-                        </div>
-
                     </div>
                     <div className="mt-6 flex items-center justify-start gap-x-6">
                         <Button type="submit" className="rounded-md bg-[#5AE3A9] py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -279,6 +269,14 @@ export default function RegisterForm() {
                         <button type="button" className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md">
                             Clear data
                         </button>
+                    </div>
+                    <div className="mt-6 text-xs">
+                    By creating an account, you agree to our&nbsp;
+                            <Link href="/privacy-and-cookies" className="text-[#5AE3A9] underline" target="_blank">
+                                Privacy &amp; Cookie Policy
+                            </Link> and accept our <Link href="/terms-of-use" className="text-[#5AE3A9] underline" target="_blank">
+                                Terms of use
+                            </Link>.
                     </div>
                 </form>
             </FormProvider>
