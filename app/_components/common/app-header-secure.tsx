@@ -27,7 +27,7 @@ export default function AppHeaderSecure() {
         }, {
             id: 5,
             content: 'This is another sample notifications.'
-        }, 
+        },
     ]
 
     return (
@@ -56,18 +56,13 @@ export default function AppHeaderSecure() {
                                 <BellRing className="-mt-2 -ml-3" />
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
-                                {/* <DropdownMenuSeparator /> */}
                                 {
                                     notifications.map(notification => (
-                                        <div className="px-2 py-4">
-                                            <DropdownMenuItem key={notification.id}>{notification.content}</DropdownMenuItem>
+                                        <div key={notification.id}>
+                                            <DropdownMenuItem className="px-2 py-4">{notification.content}</DropdownMenuItem>
                                         </div>
                                     ))
                                 }
-                                <DropdownMenuItem>Billing</DropdownMenuItem>
-                                <DropdownMenuItem>Team</DropdownMenuItem>
-                                <DropdownMenuItem>Subscription</DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem className="flex flex-row justify-center align-center" onClick={() => router.push('/dashboard/notifications')}>
                                     View all notifications <MoveRight size={18} className="ml-2" />

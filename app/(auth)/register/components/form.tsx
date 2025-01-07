@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Ghost, User2, Zap } from "lucide-react";
+import { Ghost, Handshake, Search, User2, Zap } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
@@ -24,7 +24,7 @@ const CandidateSchema = z.object({
     ph_no: z
         .string()
         .regex(/^\d{10}$/, {
-            message: "Phone number must be exactly 10 digits.",
+            message: "Please enter a valid phone number.",
         }),
     full_name: z
         .string()
@@ -93,7 +93,7 @@ export default function RegisterForm() {
                                 render={() => (
                                     <FormItem>
                                         <FormLabel className="block text-sm/6 font-medium text-gray-900">
-                                            You're a
+                                            I'm a
                                         </FormLabel>
                                         <FormControl className="mt-2">
                                             <Controller
@@ -106,30 +106,28 @@ export default function RegisterForm() {
                                                         className="w-[400px]"
                                                     >
                                                         <TabsList className="h-22">
-                                                            <TabsTrigger value="seeker">
-                                                                <div className="flex flex-col items-center">
-                                                                    <Ghost size={48} />
-                                                                    <p>
-                                                                        Harvester&nbsp;
-                                                                        <span className="text-gray-400">(Seeker)</span>
+                                                            <TabsTrigger value="referrer">
+                                                                <div className="flex flex-row items-center">
+                                                                    <p className="mr-2 text-lg capitalize">
+                                                                        Referrer
                                                                     </p>
+                                                                    <Handshake size={48} />
                                                                 </div>
                                                             </TabsTrigger>
-                                                            <TabsTrigger value="referrer">
-                                                                <div className="flex flex-col items-center">
-                                                                    <User2 size={48} />
-                                                                    <p>
-                                                                        Farmer&nbsp;
-                                                                        <span className="text-gray-400">(Provider)</span>
+                                                            <TabsTrigger value="seeker">
+                                                                <div className="flex flex-row items-center">
+                                                                    <p className="mr-2 text-lg capitalize">
+                                                                        Seeker
                                                                     </p>
+                                                                    <Search size={48} />
                                                                 </div>
                                                             </TabsTrigger>
                                                         </TabsList>
                                                         <TabsContent value="referrer">
-                                                            <span className="text-xs text-gray-500">Excellent! Opportunity awaits you.</span>
+                                                            <span className="text-xs text-gray-500 italic">I want to help others with referrals.</span>
                                                         </TabsContent>
                                                         <TabsContent value="seeker">
-                                                            <span className="text-xs text-gray-500">Kudos! You're a giver.</span>
+                                                            <span className="text-xs text-gray-500 italic">I'm looking for referrals</span>
                                                         </TabsContent>
                                                     </Tabs>
                                                 )}
@@ -226,7 +224,7 @@ export default function RegisterForm() {
                                 name="city"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="block text-sm/6 font-medium text-gray-900">Location</FormLabel>
+                                        <FormLabel className="block text-sm/6 font-medium text-gray-900">Current City</FormLabel>
                                         <FormControl className="mt-2">
                                             <XComboBox
                                                 name="city"
