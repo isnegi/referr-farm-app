@@ -14,7 +14,7 @@ import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
-const CandidateSchema = z.object({
+const UserSchema = z.object({
     user_type: z
         .string()
         .default("seeker")
@@ -50,8 +50,8 @@ export default function RegisterForm() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const candidateForm = useForm<z.infer<typeof CandidateSchema>>({
-        resolver: zodResolver(CandidateSchema),
+    const userForm = useForm<z.infer<typeof UserSchema>>({
+        resolver: zodResolver(UserSchema),
         defaultValues: {
             user_type: "referrer",
             ph_no: "",
@@ -62,7 +62,7 @@ export default function RegisterForm() {
 
     })
 
-    const onSubmit = async (data: z.infer<typeof CandidateSchema>) => {
+    const onSubmit = async (data: z.infer<typeof UserSchema>) => {
         setLoading(true);
         try {
             console.log(`gabbar singh : ${JSON.stringify(data)}`);
@@ -83,12 +83,12 @@ export default function RegisterForm() {
         <div>
             {error && <p className="text-red-500">{error}</p>}
 
-            <FormProvider {...candidateForm}>
-                <form onSubmit={candidateForm.handleSubmit(onSubmit)}>
+            <FormProvider {...userForm}>
+                <form onSubmit={userForm.handleSubmit(onSubmit)}>
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div className="sm:col-span-6 col-span-6">
                             <FormField
-                                control={candidateForm.control}
+                                control={userForm.control}
                                 name="user_type"
                                 render={() => (
                                     <FormItem>
@@ -98,11 +98,11 @@ export default function RegisterForm() {
                                         <FormControl className="mt-2">
                                             <Controller
                                                 name="user_type"
-                                                control={candidateForm.control}
+                                                control={userForm.control}
                                                 render={({ field }) => (
                                                     <Tabs
                                                         defaultValue={field.value}
-                                                        onValueChange={(value) => candidateForm.setValue("user_type", value)}
+                                                        onValueChange={(value) => userForm.setValue("user_type", value)}
                                                         className="w-[400px]"
                                                     >
                                                         <TabsList className="h-22">
@@ -165,7 +165,7 @@ export default function RegisterForm() {
                         </div>
                         <div className="sm:col-span-4 col-span-4">
                             <FormField
-                                control={candidateForm.control}
+                                control={userForm.control}
                                 name="ph_no"
                                 render={({ field }) => (
                                     <FormItem>
@@ -199,7 +199,7 @@ export default function RegisterForm() {
 
                         <div className="sm:col-span-3 col-span-3">
                             <FormField
-                                control={candidateForm.control}
+                                control={userForm.control}
                                 name="full_name"
                                 render={({ field }) => (
                                     <FormItem>
@@ -220,7 +220,7 @@ export default function RegisterForm() {
                         </div>
                         <div className="sm:col-span-2 col-span-2">
                             <FormField
-                                control={candidateForm.control}
+                                control={userForm.control}
                                 name="city"
                                 render={({ field }) => (
                                     <FormItem>
@@ -228,7 +228,7 @@ export default function RegisterForm() {
                                         <FormControl className="mt-2">
                                             <XComboBox
                                                 name="city"
-                                                control={candidateForm.control}
+                                                control={userForm.control}
                                                 options={cityList}
                                                 placeholder="Choose your city..."
                                             />
@@ -240,7 +240,7 @@ export default function RegisterForm() {
                         </div>
                         <div className="sm:col-span-4 col-span-4">
                             <FormField
-                                control={candidateForm.control}
+                                control={userForm.control}
                                 name="gender"
                                 render={({ field }) => (
                                     <FormItem>
@@ -282,7 +282,7 @@ export default function RegisterForm() {
                         </div>
                     </div>
                     <div className="mt-6 flex items-center justify-start gap-x-6">
-                        <Button type="submit" className="rounded-md bg-[#5AE3A9] py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        <Button type="submit" className="rounded-md bg-[#5AE3A9] py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
                             {loading ? 'Submitting' : 'Register now'}
                             { loading ? <LoadingSpinner /> : <Zap /> }
                         </Button>

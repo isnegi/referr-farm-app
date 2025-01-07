@@ -16,7 +16,7 @@ const RequestStepFormSchema = z.object({
     identifier: z
         .string()
         .regex(/^\d{10}$/, {
-        message: "Phone number must be exactly 10 digits.",
+            message: "Please enter a valid phone number.",
         }),
 })
 
@@ -129,7 +129,9 @@ export default function SignInForm() {
                                 </FormItem>
                             )}
                         />
-                        <Button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full" type="submit">
+                        <Button
+                            className="bg-[#5AE3A9] hover:bg-[#46a67d]py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 w-full"
+                            type="submit">
                             {loading ? 'Sending' : 'Send OTP'}
                             {loading ? <LoadingSpinner /> : <Key />}
                         </Button>
@@ -137,12 +139,6 @@ export default function SignInForm() {
                     <hr />
                     <div className="mt-4 text-center text-sm">
                         Don't have an account? <Link href="/register" className="text-[#5AE3A9] underline">Register here</Link>
-                        {/* By signing in you are agreeing to our policies. Read {" "}
-                        <Link href="/privacy-and-cookies" className="underline">
-                            Privacy &amp; Cookies
-                        </Link> and <Link href="/terms-of-use" className="underline">
-                            Terms of use
-                        </Link> */}
                     </div>
                 </FormProvider>
             )}
@@ -176,9 +172,11 @@ export default function SignInForm() {
                                     </FormItem>
                                 )}
                             />
-                            <Button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full" type="submit">
+                            <Button
+                                className="bg-[#5AE3A9] hover:bg-[#46a67d]py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 w-full"
+                                type="submit">
                                 {loading ? 'Validating' : 'Verify'}
-                                {loading ? <LoadingSpinner /> : <LogIn/>}
+                                {loading ? <LoadingSpinner /> : <LogIn />}
                             </Button>
                         </form>
                     </FormProvider>
