@@ -5,7 +5,7 @@ import Image from 'next/image';
 import logo from '@/public/assets/images/logo-white.png';
 import avatar from '@/public/assets/images/avatar.png';
 import { useRouter } from "next/navigation";
-import { BellRing, LogIn, Menu, MoveRight, User } from "lucide-react";
+import { BellRing, CircleDollarSign, DollarSign, Grab, Inbox, LifeBuoy, LogIn, LogOut, Menu, MoveRight, Settings, User, UserPen } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export default function AppHeaderSecure() {
@@ -77,12 +77,34 @@ export default function AppHeaderSecure() {
                                 <Image className="rounded-full" alt="user avatar" height={48} width={48} src={avatar} />
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                <DropdownMenuLabel><span className="font-normal">Signed in as</span><br/>Referrer</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>Profile</DropdownMenuItem>
-                                <DropdownMenuItem>Billing</DropdownMenuItem>
-                                <DropdownMenuItem>Team</DropdownMenuItem>
-                                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <UserPen size={24} />
+                                    Profile
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Inbox size={24} />
+                                    Inbox
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Settings size={24} />
+                                    Settings
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <CircleDollarSign size={24} />
+                                    Earnings
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <LifeBuoy size={24} />
+                                    Help
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>
+                                    <LogOut size={24} />
+                                    Logout
+                                </DropdownMenuItem>
+
                             </DropdownMenuContent>
                         </DropdownMenu>
 
