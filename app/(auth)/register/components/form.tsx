@@ -50,16 +50,17 @@ export default function RegisterForm() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const DEFAULT_VALUES = {
+        user_type: "referrer",
+        ph_no: "",
+        full_name: "",
+        city: "",
+        gender: "",
+    };
+
     const userForm = useForm<z.infer<typeof UserSchema>>({
         resolver: zodResolver(UserSchema),
-        defaultValues: {
-            user_type: "referrer",
-            ph_no: "",
-            full_name: "",
-            city: "",
-            gender: "",
-        },
-
+        defaultValues: DEFAULT_VALUES,
     })
 
     const onSubmit = async (data: z.infer<typeof UserSchema>) => {
@@ -77,6 +78,11 @@ export default function RegisterForm() {
         } finally {
             setLoading(false);
         }
+    }
+
+    const resetForm = () => {
+        userForm.reset();
+        // userForm.reset(DEFAULT_VALUES, {keepDirtyValues: false});
     }
 
     return (
@@ -108,18 +114,18 @@ export default function RegisterForm() {
                                                         <TabsList className="h-22">
                                                             <TabsTrigger value="referrer">
                                                                 <div className="flex flex-row items-center">
-                                                                    <p className="mr-2 text-lg capitalize">
+                                                                    <p className="mr-2 capitalize">
                                                                         Referrer
                                                                     </p>
-                                                                    <Handshake size={48} />
+                                                                    <Handshake size={28} />
                                                                 </div>
                                                             </TabsTrigger>
                                                             <TabsTrigger value="seeker">
                                                                 <div className="flex flex-row items-center">
-                                                                    <p className="mr-2 text-lg capitalize">
+                                                                    <p className="mr-2 capitalize">
                                                                         Seeker
                                                                     </p>
-                                                                    <Search size={48} />
+                                                                    <Search size={28} />
                                                                 </div>
                                                             </TabsTrigger>
                                                         </TabsList>
@@ -282,11 +288,18 @@ export default function RegisterForm() {
                         </div>
                     </div>
                     <div className="mt-6 flex items-center justify-start gap-x-6">
-                        <Button type="submit" className="rounded-md bg-[#5AE3A9] py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+                        <Button
+                            type="submit"
+                            className="rounded-md bg-[#5AE3A9] py-2 px-4 text-sm text-white shadow-sm hover:bg-[#46a67d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                        >
                             {loading ? 'Submitting' : 'Register now'}
-                            { loading ? <LoadingSpinner /> : <Zap /> }
+                            {loading ? <LoadingSpinner /> : <Zap />}
                         </Button>
-                        <button type="button" className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md">
+                        <button
+                            type="button"
+                            onClick={() => resetForm()}
+                            className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md"
+                        >
                             Reset
                         </button>
                     </div>
