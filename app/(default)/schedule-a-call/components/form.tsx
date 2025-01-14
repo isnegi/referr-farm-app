@@ -17,7 +17,9 @@ const CandidateSchema = z.object({
         .min(1, "Your name cannot be blank."),
     ph_no: z
         .string()
-        .min(1, "Phone number cannot be empty."),
+        .regex(/^\d{10}$/, {
+            message: "Please enter a valid phone number.",
+        }),
     what_for: z.string().min(2, "You must select a purpose."),
     query: z
         .string()
@@ -89,13 +91,18 @@ export default function ScheduleACallForm() {
                                 <FormItem>
                                     <FormLabel className="block text-sm/6 font-medium text-gray-900">Phone</FormLabel>
                                     <FormControl className="mt-2">
-                                        <Input
-                                            type="text"
-                                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                                            placeholder="e.g., 0000-000-000"
-                                            {...field}
-                                        />
-                                    </FormControl>
+                                            <div className="relative">
+                                                <div className="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none text-sm">
+                                                    <span className="text-gray-500 font-bold">+91</span>
+                                                </div>
+                                                <Input
+                                                    className="block w-full px-10"
+                                                    type="tel"
+                                                    placeholder=" 0000-000-000"
+                                                    {...field}
+                                                />
+                                            </div>
+                                        </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
@@ -118,16 +125,16 @@ export default function ScheduleACallForm() {
                                                 <FormControl>
                                                     <RadioGroupItem value="referrer" />
                                                 </FormControl>
-                                                <FormLabel className="font-normal">
-                                                    Refferer
+                                                <FormLabel className="font-normal capitalize">
+                                                    refferer
                                                 </FormLabel>
                                             </FormItem>
                                             <FormItem className="flex items-center space-x-3 space-y-0">
                                                 <FormControl>
                                                     <RadioGroupItem value="seeker" />
                                                 </FormControl>
-                                                <FormLabel className="font-normal">
-                                                    Job Seeker
+                                                <FormLabel className="font-normal capitalize">
+                                                    seeker
                                                 </FormLabel>
                                             </FormItem>
                                             <FormItem className="flex items-center space-x-3 space-y-0">

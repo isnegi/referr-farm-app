@@ -115,7 +115,7 @@ export default function RegisterForm() {
                                                             <TabsTrigger value="referrer">
                                                                 <div className="flex flex-row items-center">
                                                                     <p className="mr-2 capitalize">
-                                                                        Referrer
+                                                                        referrer
                                                                     </p>
                                                                     <Handshake size={28} />
                                                                 </div>
@@ -123,7 +123,7 @@ export default function RegisterForm() {
                                                             <TabsTrigger value="seeker">
                                                                 <div className="flex flex-row items-center">
                                                                     <p className="mr-2 capitalize">
-                                                                        Seeker
+                                                                        seeker
                                                                     </p>
                                                                     <Search size={28} />
                                                                 </div>
