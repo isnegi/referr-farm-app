@@ -22,7 +22,7 @@ export default function HowItWorks() {
       name: 'Database backups.',
       description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
       icon: AlarmClock,
-    },
+    }
   ]
 
   return (

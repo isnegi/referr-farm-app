@@ -1,9 +1,7 @@
 import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Ghost, User2 } from "lucide-react";
 import Image from 'next/image';
 import logo from '@/public/assets/images/logo.png';
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import RegisterForm from "./components/form";
 
 export default function Register() {

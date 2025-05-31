@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import AppHeader from "../_components/common/app-header";
-import AppFooter from "../_components/common/app-footer";
 import AppHeaderSecure from "../_components/common/app-header-secure";
 import AppFooterSecure from "../_components/common/app-footer-secure";
 import AppHeaderChildSecure from "../_components/dashboard/app-header-child-secure";

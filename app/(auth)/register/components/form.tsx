@@ -1,14 +1,13 @@
 'use client'
 
 import LoadingSpinner from "@/app/_components/common/loading-spinner";
-import { XComboBox } from "@/components/private/x-combo-box";
 import { Button } from "@/components/ui/button";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Ghost, Handshake, Search, User2, Zap } from "lucide-react";
+import { Handshake, Search, Zap } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
@@ -39,11 +38,11 @@ const UserSchema = z.object({
         .nonempty("Gender is required."),
 });
 
-const cityList = [
-    { value: "new-delhi", label: "New Delhi" },
-    { value: "mumbai", label: "Mumbai" },
-    { value: "chennai", label: "Chennai" },
-];
+// const cityList = [
+//     { value: "new-delhi", label: "New Delhi" },
+//     { value: "mumbai", label: "Mumbai" },
+//     { value: "chennai", label: "Chennai" },
+// ];
 
 export default function RegisterForm() {
 
@@ -73,7 +72,9 @@ export default function RegisterForm() {
             //     ToastManager.success('Onboarding successful. Redirecting to DASHBOARD please wait...');
             //     router.push("/dashboard/home"); // Redirect users to the dashboard
             // }
-        } catch (err: any) {
+        } catch (err) {
+            console.log(`Error: ${err}`)
+            setError('Error');
             // ToastManager.error('Error occured during onboarding! Please try later.');
         } finally {
             setLoading(false);
@@ -99,7 +100,7 @@ export default function RegisterForm() {
                                 render={() => (
                                     <FormItem>
                                         <FormLabel className="block text-sm/6 font-medium text-gray-900">
-                                            I'm a
+                                            I&apos;m a
                                         </FormLabel>
                                         <FormControl className="mt-2">
                                             <Controller
@@ -133,7 +134,7 @@ export default function RegisterForm() {
                                                             <span className="text-xs text-gray-500 italic">I want to help others with referrals.</span>
                                                         </TabsContent>
                                                         <TabsContent value="seeker">
-                                                            <span className="text-xs text-gray-500 italic">I'm looking for referrals</span>
+                                                            <span className="text-xs text-gray-500 italic">I&apos;m looking for referrals</span>
                                                         </TabsContent>
                                                     </Tabs>
                                                 )}
@@ -230,14 +231,14 @@ export default function RegisterForm() {
                                 name="city"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="block text-sm/6 font-medium text-gray-900">Current City</FormLabel>
+                                        <FormLabel aria-describedby={field.name} className="block text-sm/6 font-medium text-gray-900">Current City</FormLabel>
                                         <FormControl className="mt-2">
-                                            <XComboBox
+                                            {/* <XComboBox
                                                 name="city"
                                                 control={userForm.control}
                                                 options={cityList}
                                                 placeholder="Choose your city..."
-                                            />
+                                            /> */}
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
