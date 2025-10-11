@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import logo from '@/public/assets/images/logo.png';
 import { useRouter } from "next/navigation";
-import { LogIn, MoveRight } from "lucide-react";
+import { LogIn } from "lucide-react";
 
 export default function AppHeader() {
     const router = useRouter();

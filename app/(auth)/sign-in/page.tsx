@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SignInForm from "./components/form";
-import { Command } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from 'next/image';
 import logo from '@/public/assets/images/logo.png';

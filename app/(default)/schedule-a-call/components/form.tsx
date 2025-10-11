@@ -52,7 +52,8 @@ export default function ScheduleACallForm() {
             //     ToastManager.success('Onboarding successful. Redirecting to DASHBOARD please wait...');
             //     router.push("/dashboard/home"); // Redirect users to the dashboard
             // }
-        } catch (err: any) {
+        } catch (err) {
+            console.log(`Error: ${err}`)
             // ToastManager.error('Error occured during onboarding! Please try later.');
         } finally {
             setLoading(false);

@@ -57,8 +57,9 @@ export default function SignInForm() {
             //   await requestOtp(data.identifier);
             setIdentifier(data.identifier);
             setCurrentStep('verify');
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            console.log(`Error: ${err}`);
+            // setError(err.message);
         } finally {
             setLoading(false);
         }
@@ -89,9 +90,9 @@ export default function SignInForm() {
             // }
             // setIdentifier(data.pin);
             // setStep('verify');
-        } catch (err: any) {
+        } catch (err) {
             console.log(`eRROR : ${JSON.stringify(err)}`)
-            setError(err.message);
+            // setError(err.message);
         } finally {
             setLoading(false);
         }
@@ -138,7 +139,7 @@ export default function SignInForm() {
                     </form>
                     <hr />
                     <div className="mt-4 text-center text-sm">
-                        Don't have an account? <Link href="/register" className="text-[#5AE3A9] underline">Register here</Link>
+                        Don&apos;t have an account? <Link href="/register" className="text-[#5AE3A9] underline">Register here</Link>
                     </div>
                 </FormProvider>
             )}
