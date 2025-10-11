@@ -1,8 +1,32 @@
+import { Metadata } from 'next';
 import VideoIFrame from "@/app/_components/common/video-iframe";
 import { AlarmClock } from "lucide-react";
 import workflow_1 from '@/public/assets/images/workflow_1.png';
 import workflow_2 from '@/public/assets/images/workflow_2.png';
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "How ReferrFarm Works - Your Guide to Job Referrals",
+  description: "Discover how ReferrFarm revolutionizes job search through referrals. Learn our simple 3-step process to find opportunities or become a referrer and earn rewards.",
+  keywords: [
+    "how referrfarm works",
+    "job referral process",
+    "referral platform guide",
+    "career opportunities",
+    "job search steps",
+    "referral rewards"
+  ],
+  openGraph: {
+    title: "How ReferrFarm Works - Your Guide to Job Referrals",
+    description: "Discover how ReferrFarm revolutionizes job search through referrals. Learn our simple 3-step process.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How ReferrFarm Works - Your Guide to Job Referrals",
+    description: "Discover how ReferrFarm revolutionizes job search through referrals. Learn our simple 3-step process.",
+  },
+};
 
 export default function HowItWorks() {
 

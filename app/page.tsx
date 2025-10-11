@@ -84,77 +84,147 @@ export default function Home() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl py-6">
-      <AppHeader />
-      <div className="grid max-w-screen-xl py-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-        <div className="mr-auto place-self-center lg:col-span-7">
-          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-            The Farm of <br /> Opportunities
-          </h1>
-          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Together, we create opportunities, celebrate success, and cultivate lasting growth. Join today and grow with the only referral-driven platform.</p>
-          <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-            <Link role="button" href={'/how-it-works'} className="flex items-center uppercase px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100">
-              how it works?
-              {/* watch the demo <Play size={18} className="ml-2" /> */}
-            </Link>
-            <Link role="button" href={'/schedule-a-call'} className="flex items-center uppercase px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100">
-              schedule a call <Phone size={18} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <Image width={600} src={heroImg} alt="hero image" />
-        </div>
-      </div>
-
-      {/* TOP REFERRER CAROUSEL :: STARTS  */}
-      <div className="max-w-screen-xl py-8 lg:py-16 lg:pt-28">
-        <h1 className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">Top Referrers</h1>
-        <p className="mb-4">Meet our referral champions! These contributors are driving opportunities and empowering success.</p>
-        <ListingCarousel list={topReferrers} />
-      </div>
-      {/* TOP REFERRER CAROUSEL :: ENDS */}
-
-      {/* TOP REFERRER CAROUSEL :: STARTS  */}
-      <div className="max-w-screen-xl py-8 lg:py-16 lg:pt-28">
-        <h1 className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">Companies seeking referrals</h1>
-        <p className="mb-4">Discover companies currently open to referrals. Tap into opportunities and take the next step toward your career goals!</p>
-        <LogoBasedCarousel list={topCompanies} />
-        {/* <ListingCarousel list={topReferrers} /> */}
-      </div>
-      {/* TOP REFERRER CAROUSEL :: ENDS */}
-
-      <section className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-          <div className="mx-auto max-w-screen-sm">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Testimonials</h2>
-            <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
-          </div>
-          <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
-            {
-              feedbacks.map(feedback => {
-                return (
-                  <figure key={feedback.uid} className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
-                    <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{feedback.heading}</h3>
-                      <p className="my-4">{feedback.body}</p>
-                    </blockquote>
-                    <figcaption className="flex justify-center items-center space-x-3">
-                      <img className="w-9 h-9 rounded-full" src={feedback.avatar} alt="profile picture" />
-                      <div className="space-y-0.5 font-medium dark:text-white text-left">
-                        <div>{feedback.uname}</div>
-                        <div className="text-sm font-light text-gray-500 dark:text-gray-400">{feedback.position}</div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                )
-              })
+    <>
+      {/* Structured Data for Homepage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "ReferrFarm",
+            "description": "The premier referral-driven job platform connecting professionals with career opportunities",
+            "url": "https://referrfarm.com",
+            "logo": "https://referrfarm.com/assets/images/logo.png",
+            "sameAs": [
+              "https://twitter.com/referrfarm",
+              "https://linkedin.com/company/referrfarm"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-XXX-XXX-XXXX",
+              "contactType": "customer service",
+              "availableLanguage": "English"
+            },
+            "offers": {
+              "@type": "Offer",
+              "description": "Job referral platform connecting professionals with career opportunities",
+              "price": "0",
+              "priceCurrency": "USD"
             }
+          }),
+        }}
+      />
+      
+      <main className="mx-auto max-w-7xl py-6">
+        <AppHeader />
+        
+        {/* Hero Section */}
+        <section className="grid max-w-screen-xl py-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+          <div className="mr-auto place-self-center lg:col-span-7">
+            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
+              The Farm of <br /> Opportunities
+            </h1>
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+              Together, we create opportunities, celebrate success, and cultivate lasting growth. Join today and grow with the only referral-driven platform.
+            </p>
+            <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+              <Link 
+                role="button" 
+                href={'/how-it-works'} 
+                className="flex items-center uppercase px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Learn how ReferrFarm works"
+              >
+                how it works?
+              </Link>
+              <Link 
+                role="button" 
+                href={'/schedule-a-call'} 
+                className="flex items-center uppercase px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Schedule a call with our team"
+              >
+                schedule a call <Phone size={18} className="ml-2" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <Image 
+              width={600} 
+              height={400}
+              src={heroImg} 
+              alt="ReferrFarm platform showcasing job referral opportunities and professional networking" 
+              priority
+            />
+          </div>
+        </section>
+
+        {/* Top Referrers Section */}
+        <section className="max-w-screen-xl py-8 lg:py-16 lg:pt-28" aria-labelledby="top-referrers-heading">
+          <h2 id="top-referrers-heading" className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">
+            Top Referrers
+          </h2>
+          <p className="mb-4 text-gray-600">
+            Meet our referral champions! These contributors are driving opportunities and empowering success.
+          </p>
+          <ListingCarousel list={topReferrers} />
+        </section>
+
+        {/* Companies Seeking Referrals Section */}
+        <section className="max-w-screen-xl py-8 lg:py-16 lg:pt-28" aria-labelledby="companies-heading">
+          <h2 id="companies-heading" className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">
+            Companies Seeking Referrals
+          </h2>
+          <p className="mb-4 text-gray-600">
+            Discover companies currently open to referrals. Tap into opportunities and take the next step toward your career goals!
+          </p>
+          <LogoBasedCarousel list={topCompanies} />
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="bg-white dark:bg-gray-900" aria-labelledby="testimonials-heading">
+          <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+            <div className="mx-auto max-w-screen-sm">
+              <h2 id="testimonials-heading" className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                What Our Community Says
+              </h2>
+              <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
+                Hear from professionals who have found success through our referral platform
+              </p>
+            </div>
+            <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
+              {
+                feedbacks.map(feedback => {
+                  return (
+                    <article key={feedback.uid} className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
+                      <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                          {feedback.heading}
+                        </h3>
+                        <p className="my-4">{feedback.body}</p>
+                      </blockquote>
+                      <figcaption className="flex justify-center items-center space-x-3">
+                        <img 
+                          className="w-9 h-9 rounded-full" 
+                          src={feedback.avatar} 
+                          alt={`Profile picture of ${feedback.uname}`}
+                          loading="lazy"
+                        />
+                        <div className="space-y-0.5 font-medium dark:text-white text-left">
+                          <div>{feedback.uname}</div>
+                          <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+                            {feedback.position}
+                          </div>
+                        </div>
+                      </figcaption>
+                    </article>
+                  )
+                })
+              }
+            </div>
+          </div>
+        </section>
+      </main>
       <AppFooter />
-    </div>
+    </>
   );
 }

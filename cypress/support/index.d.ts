@@ -1,0 +1,9 @@
+/// <reference types="cypress" />
+
+declare namespace Cypress {
+  interface Chainable {
+    // Add custom commands here if needed
+    // Example:
+    // login(email: string, password: string): Chainable<void>
+  }
+} 
