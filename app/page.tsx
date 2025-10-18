@@ -123,10 +123,10 @@ export default function Home() {
         <section className="grid max-w-screen-xl py-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-              The Farm of <br /> Opportunities
+              Job Referrals & <br /> Career Opportunities
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              Together, we create opportunities, celebrate success, and cultivate lasting growth. Join today and grow with the only referral-driven platform.
+              Together, we create <Link href="/about" className="text-blue-600 hover:underline">job referral opportunities</Link>, celebrate success, and cultivate lasting growth. Join today and grow with the only <Link href="/how-it-works" className="text-blue-600 hover:underline">referral-driven platform</Link>.
             </p>
             <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
               <Link 
@@ -164,7 +164,7 @@ export default function Home() {
             Top Referrers
           </h2>
           <p className="mb-4 text-gray-600">
-            Meet our referral champions! These contributors are driving opportunities and empowering success.
+            Meet our <Link href="/about" className="text-blue-600 hover:underline">referral champions</Link>! These contributors are driving <Link href="/how-it-works" className="text-blue-600 hover:underline">job opportunities</Link> and empowering success.
           </p>
           <ListingCarousel list={topReferrers} />
         </section>
@@ -175,7 +175,7 @@ export default function Home() {
             Companies Seeking Referrals
           </h2>
           <p className="mb-4 text-gray-600">
-            Discover companies currently open to referrals. Tap into opportunities and take the next step toward your career goals!
+            Discover companies currently open to <Link href="/how-it-works" className="text-blue-600 hover:underline">job referrals</Link>. Tap into <Link href="/schedule-a-call" className="text-blue-600 hover:underline">career opportunities</Link> and take the next step toward your career goals!
           </p>
           <LogoBasedCarousel list={topCompanies} />
         </section>
@@ -188,7 +188,7 @@ export default function Home() {
                 What Our Community Says
               </h2>
               <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-                Hear from professionals who have found success through our referral platform
+                Hear from professionals who have found success through our <Link href="/how-it-works" className="text-blue-600 hover:underline">job referral platform</Link>
               </p>
             </div>
             <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
@@ -203,12 +203,14 @@ export default function Home() {
                         <p className="my-4">{feedback.body}</p>
                       </blockquote>
                       <figcaption className="flex justify-center items-center space-x-3">
-                        <img 
-                          className="w-9 h-9 rounded-full" 
-                          src={feedback.avatar} 
-                          alt={`Profile picture of ${feedback.uname}`}
-                          loading="lazy"
-                        />
+                          <Image 
+                            className="w-9 h-9 rounded-full" 
+                            src={feedback.avatar} 
+                            alt={`Profile picture of ${feedback.uname}`}
+                            width={500} 
+                            height={300}
+                            priority={true} // for above-the-fold images
+                          />
                         <div className="space-y-0.5 font-medium dark:text-white text-left">
                           <div>{feedback.uname}</div>
                           <div className="text-sm font-light text-gray-500 dark:text-gray-400">

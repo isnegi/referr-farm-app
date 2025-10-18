@@ -16,10 +16,14 @@ export const metadata: Metadata = {
     "job search steps",
     "referral rewards"
   ],
+  alternates: {
+    canonical: '/how-it-works',
+  },
   openGraph: {
     title: "How ReferrFarm Works - Your Guide to Job Referrals",
     description: "Discover how ReferrFarm revolutionizes job search through referrals. Learn our simple 3-step process.",
     type: "website",
+    url: "https://referrfarm.com/how-it-works",
   },
   twitter: {
     card: "summary_large_image",

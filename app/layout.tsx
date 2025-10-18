@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from 'next/script'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ReferrFarm - The Farm of Opportunities | Job Referral Platform",
+    default: "ReferrFarm - Job Referral Platform | Career Opportunities",
     template: "%s | ReferrFarm"
   },
-  description: "Join ReferrFarm, the premier referral-driven job platform. Connect with top referrers, discover opportunities, and grow your career through our community-driven approach to job referrals.",
+  description: "Join ReferrFarm, the premier job referral platform. Connect with top referrers, discover career opportunities, and grow through referrals.",
   keywords: [
     "job referrals",
     "career opportunities", 
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "ReferrFarm - The Farm of Opportunities",
-    description: "Join the premier referral-driven job platform. Connect with top referrers, discover opportunities, and grow your career.",
+    title: "ReferrFarm - Job Referral Platform | Career Opportunities",
+    description: "Join ReferrFarm, the premier job referral platform. Connect with top referrers, discover career opportunities, and grow through referrals.",
     url: 'https://referrfarm.com', // Update with your actual domain
     siteName: 'ReferrFarm',
     locale: 'en_US',
@@ -58,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "ReferrFarm - The Farm of Opportunities",
-    description: "Join the premier referral-driven job platform. Connect with top referrers, discover opportunities, and grow your career.",
+    title: "ReferrFarm - Job Referral Platform | Career Opportunities",
+    description: "Join ReferrFarm, the premier job referral platform. Connect with top referrers, discover career opportunities, and grow through referrals.",
     images: ['/assets/images/hero-img.png'],
     creator: '@referrfarm', // Update with your actual Twitter handle
   },
@@ -112,12 +113,27 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#5AE3A9" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
+        {/* Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5N2B0490R6"></Script>
+        {/* <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-5N2B0490R6');
+        </script> */}
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5N2B0490R6');
+          `}
+        </Script>
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          { JSON.stringify(structuredData) }
+        </Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

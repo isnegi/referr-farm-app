@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Image from "next/image";
 
 type CarouselItemType = {
     "uid": string,
@@ -33,8 +34,8 @@ const ListingCarousel: React.FC<ListingCarouselProps> = ({ list = [{ uid: 'abc12
                                     className="min-w-72 flex flex-row rounded-lg border p-4 text-left text-sm transition-all hover:bg-accent"
                                 > */}
                                             <div className="border rounded-full mr-8">
-                                                <img src={element.avatar} alt="user image" width={64} height={64} />
-                                                {/* <Image src={element.avatar} alt="user image" width={32} height={32} /> */}
+                                                {/* <img src={element.avatar} alt="user image" width={64} height={64} /> */}
+                                                <Image src={element.avatar} alt="user image" width={64} height={64} />
                                             </div>
                                             <div className="flex flex-col items-start gap-2 ">
                                                 <div className="flex w-full flex-col gap-1">
