@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ReferrFarm - The Farm of Opportunities | Job Referral Platform",
+    default: "ReferrFarm - Job Referral Platform | Career Opportunities",
     template: "%s | ReferrFarm"
   },
-  description: "Join ReferrFarm, the premier referral-driven job platform. Connect with top referrers, discover opportunities, and grow your career through our community-driven approach to job referrals.",
+  description: "Join ReferrFarm, the premier job referral platform. Connect with top referrers, discover career opportunities, and grow through referrals.",
   keywords: [
     "job referrals",
     "career opportunities", 
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "ReferrFarm - The Farm of Opportunities",
-    description: "Join the premier referral-driven job platform. Connect with top referrers, discover opportunities, and grow your career.",
+    title: "ReferrFarm - Job Referral Platform | Career Opportunities",
+    description: "Join ReferrFarm, the premier job referral platform. Connect with top referrers, discover career opportunities, and grow through referrals.",
     url: 'https://referrfarm.com', // Update with your actual domain
     siteName: 'ReferrFarm',
     locale: 'en_US',
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "ReferrFarm - The Farm of Opportunities",
-    description: "Join the premier referral-driven job platform. Connect with top referrers, discover opportunities, and grow your career.",
+    title: "ReferrFarm - Job Referral Platform | Career Opportunities",
+    description: "Join ReferrFarm, the premier job referral platform. Connect with top referrers, discover career opportunities, and grow through referrals.",
     images: ['/assets/images/hero-img.png'],
     creator: '@referrfarm', // Update with your actual Twitter handle
   },
@@ -112,6 +112,18 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#5AE3A9" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'GA_MEASUREMENT_ID');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -31,7 +31,16 @@ export default function AppFooter() {
         </div>
       </div>
       <div className="col-span-8 md:col-span-6 lg:col-span-5 flex justify-end items-end">
-        <span className="text-slate-500 text-sm">© 2024 ReferrFarm & Co. | All right reserved</span>
+        <div className="flex flex-col items-end space-y-2">
+          <div className="flex space-x-6 text-sm">
+            <Link href="/about" className="text-slate-500 hover:text-slate-700">About</Link>
+            <Link href="/how-it-works" className="text-slate-500 hover:text-slate-700">How It Works</Link>
+            <Link href="/contact-us" className="text-slate-500 hover:text-slate-700">Contact</Link>
+            <Link href="/privacy-and-cookies" className="text-slate-500 hover:text-slate-700">Privacy</Link>
+            <Link href="/terms-of-use" className="text-slate-500 hover:text-slate-700">Terms</Link>
+          </div>
+          <span className="text-slate-500 text-sm">© 2024 ReferrFarm & Co. | All right reserved</span>
+        </div>
       </div>
     </div>
   );

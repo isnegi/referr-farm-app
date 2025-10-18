@@ -11,10 +11,14 @@ export const metadata: Metadata = {
     "referral system",
     "job search innovation"
   ],
+  alternates: {
+    canonical: '/about',
+  },
   openGraph: {
     title: "About ReferrFarm - Building Career Opportunities Through Referrals",
     description: "Learn about ReferrFarm's mission to revolutionize job search through referral networks. Discover how we connect professionals and create meaningful career opportunities.",
     type: "website",
+    url: "https://referrfarm.com/about",
   },
   twitter: {
     card: "summary_large_image",
