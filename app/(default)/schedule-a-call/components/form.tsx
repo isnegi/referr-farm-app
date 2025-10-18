@@ -60,6 +60,19 @@ export default function ScheduleACallForm() {
         }
     }
 
+    const { reset } = candidateForm;
+
+    const handleReset = () => {
+        reset({
+            full_name: "",
+            ph_no: "",
+            what_for: "",
+            query: "",
+        })
+
+        console.log("Form reset");
+    }
+    
     return (
         <FormProvider {...candidateForm}>
             <form onSubmit={candidateForm.handleSubmit(onSubmit)}>
@@ -176,7 +189,11 @@ export default function ScheduleACallForm() {
                         {loading ? 'Sending ' : 'Send now'}
                         {loading ? '...' : <Send size={22} />}
                     </Button>
-                    <button type="button" className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md">
+                    <button 
+                        type="button" 
+                        className="flex items-center mr-4 bg-transparent hover:bg-gray-200 py-2 px-4 border hover:border-transparent rounded-md"
+                        onClick={handleReset}
+                    >
                         Reset
                     </button>
                 </div>

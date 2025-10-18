@@ -203,12 +203,14 @@ export default function Home() {
                         <p className="my-4">{feedback.body}</p>
                       </blockquote>
                       <figcaption className="flex justify-center items-center space-x-3">
-                        <img 
-                          className="w-9 h-9 rounded-full" 
-                          src={feedback.avatar} 
-                          alt={`Profile picture of ${feedback.uname}`}
-                          loading="lazy"
-                        />
+                          <Image 
+                            className="w-9 h-9 rounded-full" 
+                            src={feedback.avatar} 
+                            alt={`Profile picture of ${feedback.uname}`}
+                            width={500} 
+                            height={300}
+                            priority={true} // for above-the-fold images
+                          />
                         <div className="space-y-0.5 font-medium dark:text-white text-left">
                           <div>{feedback.uname}</div>
                           <div className="text-sm font-light text-gray-500 dark:text-gray-400">

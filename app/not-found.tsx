@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Page Not Found - ReferrFarm",
-  description: "The page you're looking for doesn't exist. Find job referrals and career opportunities on ReferrFarm.",
+  description: "The page you&apos;re looking for doesn&apos;t exist. Find job referrals and career opportunities on ReferrFarm.",
   robots: {
     index: false,
     follow: true,
@@ -20,7 +20,7 @@ export default function NotFound() {
             Page Not Found
           </h2>
           <p className="text-gray-600 mb-8">
-            The page you're looking for doesn't exist. Let's get you back to finding 
+            The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you back to finding 
             <Link href="/" className="text-blue-600 hover:underline"> job referrals</Link> and 
             <Link href="/how-it-works" className="text-blue-600 hover:underline"> career opportunities</Link>.
           </p>
