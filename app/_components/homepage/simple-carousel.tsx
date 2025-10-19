@@ -1,68 +1,66 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import TopReferrerCard from "./referrer-card";
 
 type CarouselItemType = {
-    "uid": string,
-    "fullName": string,
-    "headline": string,
-    "currentCompany": string,
-    "avatar": string,
-    "memberSince": string
+    uid: string;
+    fullName: string;
+    headline: string;
+    currentCompany: string;
+    avatar: string;
+    memberSince: string;
+    referralsGiven?: number;
+    successfulHires?: number;
+    isVerified?: boolean;
 }
 
 interface ListingCarouselProps {
-    list?: CarouselItemType[];  // Optional: Customize the size of the spinner
+    list?: CarouselItemType[];
 }
 
-const ListingCarousel: React.FC<ListingCarouselProps> = ({ list = [{ uid: 'abc123', fullName: 'Test user', headline: 'Testing...', currentCompany: 'ABC Co.', avatar: 'https://robohash.org/voluptatumillominus.png?size=50x50&set=set1', memberSince: "2/3/2023" }] }) => {
-    return (
-        <Carousel opts={{
-            align: "start",
-        }}
-            className="">
-            <CarouselContent>
+const ListingCarousel: React.FC<ListingCarouselProps> = ({ 
+    list = [{
+        uid: 'abc123',
+        fullName: 'Test user',
+        headline: 'Testing...',
+        currentCompany: 'ABC Co.',
+        avatar: 'https://robohash.org/voluptatumillominus.png?size=50x50&set=set1',
+        memberSince: "2/3/2023",
+        referralsGiven: 24,
+        successfulHires: 8,
+        isVerified: true
+    }] 
+}) => {
 
-                {
-                    list.map(element => {
-                        return (
-                            <CarouselItem key={element.uid} className="sm:basis-1/1 md:basis-1/2 lg:basis-1/4" >
-                                <div className="p-1 min-w-72">
-                                    <Card className="min-w-72 min-h-34 text-left text-sm transition-all hover:bg-accent">
-                                        <CardContent className="flex flex-row p-4">
-                                            {/* <button
-                                    className="min-w-72 flex flex-row rounded-lg border p-4 text-left text-sm transition-all hover:bg-accent"
-                                > */}
-                                            <div className="border rounded-full mr-8">
-                                                <img src={element.avatar} alt="user image" width={64} height={64} />
-                                                {/* <Image src={element.avatar} alt="user image" width={32} height={32} /> */}
-                                            </div>
-                                            <div className="flex flex-col items-start gap-2 ">
-                                                <div className="flex w-full flex-col gap-1">
-                                                    <div className="flex items-center">
-                                                        <div className="flex items-center gap-2">
-                                                            <div className="font-semibold">{element.fullName}</div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="text-xs"><strong>Works at:</strong> {element.currentCompany || 'Not Provided'}</div>
-                                                    <div className="text-xs font-medium"><strong>Headline:</strong> {element.headline || 'Not provided'}</div>
-                                                </div>
-                                                <div className="line-clamp-2 text-xs text-muted-foreground">
-                                                    Member since: {element.memberSince}
-                                                </div>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        )
-                    })
-                }
-                {/* <CarouselPrevious />
-                <CarouselNext /> */}
+    const handleGetInTouch = (uid: string) => {
+        console.log('Getting in touch with user:', uid);
+        // Add your logic here - e.g., open modal, navigate to chat, etc.
+    };
+    
+    return (
+        <Carousel 
+            opts={{
+                align: "start",
+            }}
+            className=""
+        >
+            <CarouselContent>
+                {list.map(element => (
+                    <CarouselItem 
+                        key={element.uid} 
+                        className="sm:basis-1/1 md:basis-1/2 lg:basis-1/4"
+                    >
+                        <TopReferrerCard
+                            referrer={element} 
+                            onGetInTouch={handleGetInTouch}
+                        />
+                    </CarouselItem>
+                ))}
             </CarouselContent>
         </Carousel>
-
-    )
+    );
 }
 
 export default ListingCarousel;

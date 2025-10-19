@@ -2,33 +2,22 @@ import Image from "next/image";
 import AppFooter from "./_components/common/app-footer";
 import AppHeader from "./_components/common/app-header"
 import heroImg from '@/public/assets/images/hero-img.png';
-import { Phone } from "lucide-react";
+import { Asterisk, Phone } from "lucide-react";
 import Link from "next/link";
 import ListingCarousel from "./_components/homepage/simple-carousel";
 import LogoBasedCarousel from "./_components/homepage/logo-based-carousel";
 
 export default function Home() {
 
-  const topReferrers = [{ "uid": "a768067b-cb72-4d6c-b5ee-e670273caaeb", "fullName": "Simone Cawte", "headline": "Payment Adjustment Coordinator", "currentCompany": "Meevee", "avatar": "https://robohash.org/voluptatumillominus.png?size=64x64&set=set1", "memberSince": "2/3/2023" },
-  { "uid": "cd978bab-b02d-4668-a590-11530d9f42d0", "fullName": "Marylou Raycroft", "headline": "Staff Accountant I", "currentCompany": "Oyope", "avatar": "https://robohash.org/praesentiumomnisomnis.png?size=64x64&set=set1", "memberSince": "10/30/2024" },
-  { "uid": "bf0ba468-326e-4099-870c-58531b0bcda4", "fullName": "Alexandrina Nettleship", "headline": "Senior Cost Accountant", "currentCompany": "Twimbo", "avatar": "https://robohash.org/perspiciatisetet.png?size=64x64&set=set1", "memberSince": "3/1/2022" },
-  { "uid": "7b2f32f5-6253-4e9b-85ec-e01811f8245f", "fullName": "Phelia Acaster", "headline": "Accountant I", "currentCompany": "Mudo", "avatar": "https://robohash.org/voluptatibusnecessitatibusearum.png?size=64x64&set=set1", "memberSince": "9/4/2024" },
-  { "uid": "584d843c-09ac-46b2-950f-fae7893e8fcf", "fullName": "Siouxie Clayson", "headline": "Business Systems Development Analyst", "currentCompany": "Aivee", "avatar": "https://robohash.org/maximealiquamsuscipit.png?size=64x64&set=set1", "memberSince": "8/11/2022" },
-  { "uid": "208c924b-8dae-4729-87d1-15020b6ec713", "fullName": "Wendeline Palphreyman", "headline": "VP Sales", "currentCompany": "Jayo", "avatar": "https://robohash.org/consequunturetculpa.png?size=64x64&set=set1", "memberSince": "12/7/2023" },
-  { "uid": "ef434be3-f30d-4e05-ad44-c74d69946d4b", "fullName": "Nehemiah Euston", "headline": "Teacher", "currentCompany": "Jabbersphere", "avatar": "https://robohash.org/nobisconsequaturcupiditate.png?size=64x64&set=set1", "memberSince": "4/13/2022" },
-  { "uid": "32744da5-9523-4e1e-b520-b7d78982df30", "fullName": "Cristobal Gauntley", "headline": "Geologist III", "currentCompany": "Mynte", "avatar": "https://robohash.org/ipsapossimusexcepturi.png?size=64x64&set=set1", "memberSince": "1/1/2025" },
-  { "uid": "691a29a4-5d5f-40f2-a98b-602405c342b9", "fullName": "Margette Beardow", "headline": "Systems Administrator III", "currentCompany": "Katz", "avatar": "https://robohash.org/etnequefacilis.png?size=64x64&set=set1", "memberSince": "5/9/2022" },
-  { "uid": "f0fd5bdb-dcbb-4638-a98f-5a04fa264066", "fullName": "Brandy Bonehill", "headline": "Financial Advisor", "currentCompany": "Jayo", "avatar": "https://robohash.org/quiseligendimolestias.png?size=64x64&set=set1", "memberSince": "6/14/2023" },
-  { "uid": "f363727c-b9cb-48bf-a9bc-c7566c7393ae", "fullName": "Celia Fenelon", "headline": "Geologist IV", "currentCompany": "Skimia", "avatar": "https://robohash.org/sitliberoveniam.png?size=64x64&set=set1", "memberSince": "12/25/2023" },
-  { "uid": "7900f4d2-ff71-4218-b6a9-dba576fa18fa", "fullName": "Adelind Garrique", "headline": "Dental Hygienist", "currentCompany": "Oodoo", "avatar": "https://robohash.org/voluptatemdolorratione.png?size=64x64&set=set1", "memberSince": "10/30/2022" },
-  { "uid": "ecf165c9-107a-4ae7-882c-dd6632ee014d", "fullName": "Bette Rankin", "headline": "Social Worker", "currentCompany": "Avamm", "avatar": "https://robohash.org/eaquia.png?size=64x64&set=set1", "memberSince": "3/19/2024" },
-  { "uid": "76f1770d-f46e-46ea-853a-a00f557ccaa5", "fullName": "Kristal Keele", "headline": "Physical Therapy Assistant", "currentCompany": "Cogibox", "avatar": "https://robohash.org/omnisnonasperiores.png?size=64x64&set=set1", "memberSince": "6/4/2024" },
-  { "uid": "01e5f999-b683-465d-b077-1bccb02419af", "fullName": "Shawna Scullard", "headline": "Food Chemist", "currentCompany": "Skinder", "avatar": "https://robohash.org/namquicum.png?size=64x64&set=set1", "memberSince": "1/1/2025" },
-  { "uid": "f888608e-893f-4726-b3c9-04c3c53baf1f", "fullName": "Leia Runsey", "headline": "Financial Advisor", "currentCompany": "Eamia", "avatar": "https://robohash.org/molestiasitaquequo.png?size=64x64&set=set1", "memberSince": "5/14/2022" },
-  { "uid": "c4c1cc31-283f-4b27-83d4-207d410ccfcc", "fullName": "Annie Mateuszczyk", "headline": "Assistant Professor", "currentCompany": "Tagchat", "avatar": "https://robohash.org/nihiladipiscirerum.png?size=64x64&set=set1", "memberSince": "7/18/2023" },
-  { "uid": "7dd7945b-8b8d-4d9a-939f-499a61b9ffbf", "fullName": "Haily Denerley", "headline": "Teacher", "currentCompany": "Aimbo", "avatar": "https://robohash.org/dolorumrerumquos.png?size=64x64&set=set1", "memberSince": "5/21/2022" },
-  { "uid": "fcb2e27d-a43a-468e-8d47-705cc459d446", "fullName": "Titus Whiffin", "headline": "Financial Analyst", "currentCompany": "Blogspan", "avatar": "https://robohash.org/uteosest.png?size=64x64&set=set1", "memberSince": "9/6/2023" },
-  { "uid": "2daf3db2-9978-420c-b1c1-a6c1a2b5e422", "fullName": "Alanna Sergean", "headline": "Desktop Support Technician", "currentCompany": "Mybuzz", "avatar": "https://robohash.org/evenietinatque.png?size=64x64&set=set1", "memberSince": "11/4/2023" }];
+  const topReferrers = [
+    { "uid": "a768067b-cb72-4d6c-b5ee-e670273caaeb", "fullName": "Simone Cawte", "headline": "Payment Adjustment Coordinator", "currentCompany": "Meevee", "avatar": "https://www.referrfarm.com/assets/images/avatar.png", "memberSince": "2/3/2023" },
+    { "uid": "cd978bab-b02d-4668-a590-11530d9f42d0", "fullName": "Marylou Raycroft", "headline": "Staff Accountant I", "currentCompany": "Oyope", "avatar": "https://www.referrfarm.com/assets/sample/user-01.jpg", "memberSince": "10/30/2024" },
+    { "uid": "bf0ba468-326e-4099-870c-58531b0bcda4", "fullName": "Alexandrina Nettleship", "headline": "Senior Cost Accountant", "currentCompany": "Twimbo", "avatar": "https://www.referrfarm.com/assets/sample/user-02.jpg", "memberSince": "3/1/2022" },
+    { "uid": "7b2f32f5-6253-4e9b-85ec-e01811f8245f", "fullName": "Phelia Acaster", "headline": "Accountant I", "currentCompany": "Mudo", "avatar": "https://www.referrfarm.com/assets/images/logo-white.png", "memberSince": "9/4/2024" },
+    { "uid": "584d843c-09ac-46b2-950f-fae7893e8fcf", "fullName": "Siouxie Clayson", "headline": "Business Systems Development Analyst", "currentCompany": "Aivee", "avatar": "https://www.referrfarm.com/assets/sample/user-01.jpg", "memberSince": "8/11/2022" },
+    { "uid": "208c924b-8dae-4729-87d1-15020b6ec713", "fullName": "Wendeline Palphreyman", "headline": "VP Sales", "currentCompany": "Jayo", "avatar": "https://www.referrfarm.com/assets/images/avatar.png", "memberSince": "12/7/2023" },
+    
+];
 
   const topCompanies = [{ "uid": "365cdb16-7e2a-4e51-8f93-9eda295b5f92", "companyName": "Twimbo & Co.", "avatar": "https://robohash.org/autemassumendaharum.png??size=72x72&set=set1", "url": "https://photobucket.com", "openings": 4 },
   { "uid": "ee7ffb9f-4cd3-4a62-9d4e-f2aa061c8168", "companyName": "Demivee Limited", "avatar": "https://robohash.org/quaeratrepellataut.png??size=72x72&set=set1", "url": "http://icio.us", "openings": 1 },
@@ -54,29 +43,29 @@ export default function Home() {
   const feedbacks = [
     {
       uid: 'abc101',
-      heading: 'Speechless with how easy this was to integrate',
-      body: "I recently got my hands on Flowbite Pro, and holy crap, I'm speechless with how easy this was to integrate within my application. Most templates are a pain, code is scattered, and near impossible to theme.",
+      heading: 'The Quick Win',
+      body: "I applied to [Company] 3 times through their portal with no response. Got a referral here and had an interview scheduled within a week. Game changer!",
       avatar: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png",
       uname: "Bonnie Green",
       position: "Developer at Open AI"
     }, {
       uid: 'abc102',
-      heading: 'Solid foundation for any project',
-      body: "FlowBite provides a robust set of design tokens and components based on the popular Tailwind CSS framework. From the most used UI components like forms and navigation bars to the whole app screens designed both for desktop and mobile, this UI kit provides a solid foundation for any project.",
+      heading: 'The Fresher Success',
+      body: "As a fresher, I was struggling to even get noticed. Through this platform, I connected with an employee at [Company] who guided me and referred me. Now I'm part of their team!",
       avatar: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png",
       uname: "Roberta Casas",
       position: "Lead designer at Dropbox"
     }, {
       uid: 'abc103',
-      heading: 'Mindblowing workflow and variants',
-      body: "As someone who mainly designs in the browser, I've been a casual user of Figma, but as soon as I saw and started playing with FlowBite my mind was 🤯.",
+      heading: 'The Career Switcher',
+      body: "Switching industries felt impossible until I found employees willing to refer me. The direct connection made all the difference. Landed 3 interviews in 2 weeks.",
       avatar: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
       uname: "Jese Leos",
       position: "Software Engineer at Facebook"
     }, {
       uid: 'abc104',
-      heading: 'Efficient Collaborating',
-      body: "his is a very complex and beautiful set of elements. Under the hood it comes with the best things from 2 different worlds: Figma and Tailwind.",
+      heading: 'The Relief',
+      body: "Finally, a platform that actually works! No fake job posts, no recruiter spam. Just real employees with real openings. Got referred within 2 days of requesting.",
       avatar: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png",
       uname: "Joseph McFall",
       position: "CTO at Google"
@@ -120,34 +109,38 @@ export default function Home() {
         <AppHeader />
         
         {/* Hero Section */}
-        <section className="grid max-w-screen-xl py-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+        <section className="grid max-w-screen-xl lg:gap-8 xl:gap-0 lg:grid-cols-12" style={{height: '90vh'}}>
           <div className="mr-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-              The Farm of <br /> Opportunities
+            <h1 className="max-w-2xl text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
+              Get Referred.<br />
+              Get Hired.<br />
+              <span style={{color: '#5AE3A9'}}>
+                Get Ahead.
+              </span>
             </h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              Together, we create opportunities, celebrate success, and cultivate lasting growth. Join today and grow with the only referral-driven platform.
+            <p className="max-w-2xl mt-4 mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+              Connect with employees who can refer you directly to your dream company. Skip the black hole of job portals and get your resume in front of hiring managers.
             </p>
             <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
               <Link 
                 role="button" 
                 href={'/how-it-works'} 
-                className="flex items-center uppercase px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
-                aria-label="Learn how ReferrFarm works"
+                className="flex items-center px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Find Referrals"
               >
-                how it works?
+                Find Referrals
               </Link>
               <Link 
                 role="button" 
                 href={'/schedule-a-call'} 
-                className="flex items-center uppercase px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
-                aria-label="Schedule a call with our team"
+                className="flex items-center px-5 py-3 text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Post a Referral & Earn"
               >
-                schedule a call <Phone size={18} className="ml-2" aria-hidden="true" />
+                Post a Referral & Earn
               </Link>
             </div>
           </div>
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <div className="mr-auto place-self-center hidden lg:col-span-5 lg:flex">
             <Image 
               width={600} 
               height={400}
@@ -158,13 +151,30 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Trust/Stats Section */}
+        <section 
+          className="relative overflow-hidden rounded-lg bg-gradient-to-br from-black to-[#5AE3A9] p-8 text-center text-white shadow-lg md:p-16 lg:p-20"
+          aria-labelledby="top-referrers-heading"
+        >
+          <div className="relative z-10 mx-auto max-w-4xl space-y-4">
+            <h3 id="top-referrers-heading" className="text-3xl font-medium tracking-tight md:text-5xl">
+              How Referrals Change the Game
+            </h3>
+            <ul className="text-lg text-balance font-bold opacity-80 sm:text-xl">
+              <li><Asterisk className="inline-block mr-2" /> 40% of hires come through referrals (LinkedIn data)</li>
+              <li><Asterisk className="inline-block mr-2" /> Referred candidates are hired 55% faster</li>
+              <li><Asterisk className="inline-block mr-2" /> 4x higher chance of getting an interview</li>
+            </ul>
+          </div>
+        </section>
+
         {/* Top Referrers Section */}
         <section className="max-w-screen-xl py-8 lg:py-16 lg:pt-28" aria-labelledby="top-referrers-heading">
           <h2 id="top-referrers-heading" className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">
-            Top Referrers
+            Top Referrers This Month
           </h2>
           <p className="mb-4 text-gray-600">
-            Meet our referral champions! These contributors are driving opportunities and empowering success.
+            These professionals have helped the most job seekers land interviews. Connect with active referrers at your target companies.
           </p>
           <ListingCarousel list={topReferrers} />
         </section>
@@ -172,10 +182,10 @@ export default function Home() {
         {/* Companies Seeking Referrals Section */}
         <section className="max-w-screen-xl py-8 lg:py-16 lg:pt-28" aria-labelledby="companies-heading">
           <h2 id="companies-heading" className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">
-            Companies Seeking Referrals
+            Companies Hiring Right Now
           </h2>
           <p className="mb-4 text-gray-600">
-            Discover companies currently open to referrals. Tap into opportunities and take the next step toward your career goals!
+            These companies have active employees ready to refer you. Browse open positions and request your referral today.
           </p>
           <LogoBasedCarousel list={topCompanies} />
         </section>
@@ -185,10 +195,10 @@ export default function Home() {
           <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
             <div className="mx-auto max-w-screen-sm">
               <h2 id="testimonials-heading" className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                What Our Community Says
+                Real Stories, Real Results
               </h2>
               <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-                Hear from professionals who have found success through our referral platform
+                See how job seekers landed interviews and employees earned by helping others.
               </p>
             </div>
             <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
