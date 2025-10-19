@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Users, Briefcase } from 'lucide-react';
+import Image from 'next/image';
 
 interface ReferrerData {
   uid: string;
@@ -34,14 +35,7 @@ function TopReferrerCard({
     <div className="w-full max-w-sm bg-gradient-to-b from-gray-900 to-black rounded-lg p-6 shadow-lg border border-gray-800">
       {/* Profile Image */}
       <div className="relative mb-6">
-        <img
-          src={referrer.avatar}
-          alt={referrer.fullName}
-          className="w-full h-80 object-cover rounded-lg"
-          onError={(e) => {
-            e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(referrer.fullName)}&size=400&background=5AE3A9&color=000`;
-          }}
-        />
+        <Image className="w-full h-80 object-cover rounded-lg grayscale" src={referrer.avatar} alt={referrer.fullName} width={72} height={72} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-lg" />
         
         {/* Text Overlay */}

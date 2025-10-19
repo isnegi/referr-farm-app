@@ -2,7 +2,7 @@ import Image from "next/image";
 import AppFooter from "./_components/common/app-footer";
 import AppHeader from "./_components/common/app-header"
 import heroImg from '@/public/assets/images/hero-img.png';
-import { Asterisk, Phone } from "lucide-react";
+import { Asterisk } from "lucide-react";
 import Link from "next/link";
 import ListingCarousel from "./_components/homepage/simple-carousel";
 import LogoBasedCarousel from "./_components/homepage/logo-based-carousel";
@@ -213,11 +213,13 @@ export default function Home() {
                         <p className="my-4">{feedback.body}</p>
                       </blockquote>
                       <figcaption className="flex justify-center items-center space-x-3">
-                        <img 
+                        <Image 
                           className="w-9 h-9 rounded-full" 
+                          width={600} 
+                          height={400}
                           src={feedback.avatar} 
                           alt={`Profile picture of ${feedback.uname}`}
-                          loading="lazy"
+                          priority
                         />
                         <div className="space-y-0.5 font-medium dark:text-white text-left">
                           <div>{feedback.uname}</div>

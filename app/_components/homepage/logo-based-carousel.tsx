@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 type LogoBasedCarouselType = {
     "uid": string,
@@ -32,8 +33,8 @@ const LogoBasedCarousel: React.FC<LogoBasedCarouselProps> = ({ list = [{ uid: 'a
                                     <Card className="text-left text-sm transition-all hover:bg-accent">
                                         <CardContent className="flex flex-col p-4 items-center">
                                             <div className="border rounded-sm">
-                                                <img src={element.avatar} alt="user image" width={72} height={72} />
-                                                {/* <Image src={element.avatar} alt="user image" width={32} height={32} /> */}
+                                                {/* <img src={element.avatar} alt="user image" width={72} height={72} /> */}
+                                                <Image src={element.avatar} alt="user image" width={72} height={72} />
                                             </div>
                                             <Separator className="my-4" />
                                             <div className="flex w-full flex-col gap-1 items-center">

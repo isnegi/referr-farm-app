@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "cypress:open": "cypress open",
-    "deploy:s3": "npm run build:s3 && chmod +x scripts/deploy-s3.sh && ./scripts/deploy-s3.sh",
+    "deploy:s3": "npm run build:s3 && node scripts/deploy-s3-node.js",
     "deploy:node": "node scripts/deploy-s3-node.js",
     "deploy:manual": "npm run build:s3 && echo 'Build complete! Upload the out/ folder to your S3 bucket'"
   },
