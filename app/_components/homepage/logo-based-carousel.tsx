@@ -1,11 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
-import { ExternalLink } from "lucide-react";
-import Image from "next/image";
 import CompanyCard from "./company-card";
 
 type LogoBasedCarouselType = {

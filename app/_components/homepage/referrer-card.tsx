@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Users, Briefcase, HandHeart, Hand, BadgeCheck } from 'lucide-react';
+import { HandHeart, Hand, BadgeCheck } from 'lucide-react';
 import Image from 'next/image';
 
 interface ReferrerData {
