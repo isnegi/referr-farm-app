@@ -6,39 +6,98 @@ import { Asterisk } from "lucide-react";
 import Link from "next/link";
 import ListingCarousel from "./_components/homepage/simple-carousel";
 import LogoBasedCarousel from "./_components/homepage/logo-based-carousel";
+import NewsletterSection from "./_components/homepage/newsletter-section";
 
 export default function Home() {
 
   const topReferrers = [
-    { "uid": "a768067b-cb72-4d6c-b5ee-e670273caaeb", "fullName": "Simone Cawte", "headline": "Payment Adjustment Coordinator", "currentCompany": "Meevee", "avatar": "https://www.referrfarm.com/assets/images/avatar.png", "memberSince": "2/3/2023" },
-    { "uid": "cd978bab-b02d-4668-a590-11530d9f42d0", "fullName": "Marylou Raycroft", "headline": "Staff Accountant I", "currentCompany": "Oyope", "avatar": "https://www.referrfarm.com/assets/sample/user-01.jpg", "memberSince": "10/30/2024" },
-    { "uid": "bf0ba468-326e-4099-870c-58531b0bcda4", "fullName": "Alexandrina Nettleship", "headline": "Senior Cost Accountant", "currentCompany": "Twimbo", "avatar": "https://www.referrfarm.com/assets/sample/user-02.jpg", "memberSince": "3/1/2022" },
-    { "uid": "7b2f32f5-6253-4e9b-85ec-e01811f8245f", "fullName": "Phelia Acaster", "headline": "Accountant I", "currentCompany": "Mudo", "avatar": "https://www.referrfarm.com/assets/images/logo-white.png", "memberSince": "9/4/2024" },
-    { "uid": "584d843c-09ac-46b2-950f-fae7893e8fcf", "fullName": "Siouxie Clayson", "headline": "Business Systems Development Analyst", "currentCompany": "Aivee", "avatar": "https://www.referrfarm.com/assets/sample/user-01.jpg", "memberSince": "8/11/2022" },
-    { "uid": "208c924b-8dae-4729-87d1-15020b6ec713", "fullName": "Wendeline Palphreyman", "headline": "VP Sales", "currentCompany": "Jayo", "avatar": "https://www.referrfarm.com/assets/images/avatar.png", "memberSince": "12/7/2023" },
-    
-];
+    {
+      "uid": "a768067b-cb72-4d6c-b5ee-e670273caaeb", 
+      "fullName": "Simone Cawte", 
+      "headline": "Payment Adjustment Coordinator", 
+      "currentCompany": "Meevee", 
+      "avatar": "https://www.referrfarm.com/assets/images/avatar.png", 
+      "memberSince": "2/3/2023" 
+    },
+    { 
+      "uid": "cd978bab-b02d-4668-a590-11530d9f42d0", 
+      "fullName": "Marylou Raycroft", 
+      "headline": "Staff Accountant I", 
+      "currentCompany": "Oyope", 
+      "avatar": "https://www.referrfarm.com/assets/sample/user-01.jpg", 
+      "memberSince": "10/30/2024" 
+    },
+    { 
+      "uid": "bf0ba468-326e-4099-870c-58531b0bcda4", 
+      "fullName": "Alexandrina Nettleship", 
+      "headline": "Senior Cost Accountant", 
+      "currentCompany": "Twimbo", 
+      "avatar": "https://www.referrfarm.com/assets/sample/user-02.jpg", 
+      "memberSince": "3/1/2022" 
+    },
+    { 
+      "uid": "7b2f32f5-6253-4e9b-85ec-e01811f8245f", 
+      "fullName": "Phelia Acaster", 
+      "headline": "Accountant I", 
+      "currentCompany": "Mudo", 
+      "avatar": "https://www.referrfarm.com/assets/images/logo-white.png",
+      "memberSince": "9/4/2024"
+    },
+    {
+      "uid": "584d843c-09ac-46b2-950f-fae7893e8fcf",
+      "fullName": "Siouxie Clayson", 
+      "headline": "Business Systems Development Analyst", 
+      "currentCompany": "Aivee", 
+      "avatar": "", 
+      "memberSince": "8/11/2022"
+    },
+    { 
+      "uid": "208c924b-8dae-4729-87d1-15020b6ec713", 
+      "fullName": "Wendeline Palphreyman", 
+      "headline": "VP Sales", 
+      "currentCompany": "Jayo", 
+      "avatar": "", 
+      "memberSince": "12/7/2023" 
+    },
+  ];
 
-  const topCompanies = [{ "uid": "365cdb16-7e2a-4e51-8f93-9eda295b5f92", "companyName": "Twimbo & Co.", "avatar": "https://robohash.org/autemassumendaharum.png??size=72x72&set=set1", "url": "https://photobucket.com", "openings": 4 },
-  { "uid": "ee7ffb9f-4cd3-4a62-9d4e-f2aa061c8168", "companyName": "Demivee Limited", "avatar": "https://robohash.org/quaeratrepellataut.png??size=72x72&set=set1", "url": "http://icio.us", "openings": 1 },
-  { "uid": "e2b9257b-cbd1-4b60-ab41-e7c7a9c7c363", "companyName": "Feednation", "avatar": "https://robohash.org/dolorquaeratrerum.png??size=72x72&set=set1", "url": "http://netvibes.com", "openings": 10 },
-  { "uid": "b2f3222e-15b6-405b-886d-dfd7b7a3b4bf", "companyName": "Layo", "avatar": "https://robohash.org/idnullamolestiae.png??size=72x72&set=set1", "url": "http://addtoany.com", "openings": 9 },
-  { "uid": "cbb61b21-3e03-49e5-8ebd-8782b339b048", "companyName": "BlogXS Inc.", "avatar": "https://robohash.org/ipsaundenumquam.png??size=72x72&set=set1", "url": "http://mail.ru", "openings": 2 },
-  { "uid": "01cf140f-bdcf-41cb-b1f1-6fb6daff0a6b", "companyName": "Vitz Pvt Ltd", "avatar": "https://robohash.org/voluptatemvelmolestiae.png??size=72x72&set=set1", "url": "http://netvibes.com", "openings": 4 },
-  { "uid": "66ef2af8-9c0b-4470-a652-40fa3601986e", "companyName": "Avamba", "avatar": "https://robohash.org/utquiconsequuntur.png??size=72x72&set=set1", "url": "https://multiply.com", "openings": 7 },
-  { "uid": "eb8c01dd-bf50-4f86-82de-302f3fd7068f", "companyName": "Zoomdog", "avatar": "https://robohash.org/itaquealiastenetur.png??size=72x72&set=set1", "url": "https://wordpress.org", "openings": 2 },
-  { "uid": "9c031724-b741-4d1b-a8b4-9431a6ba1e65", "companyName": "Eayo", "avatar": "https://robohash.org/nobisetcorrupti.png??size=72x72&set=set1", "url": "http://themeforest.net", "openings": 10 },
-  { "uid": "5fc3108d-1b5f-41cb-9d38-cbdf4055eb3b", "companyName": "Roomm", "avatar": "https://robohash.org/quivitaeadipisci.png??size=72x72&set=set1", "url": "http://sina.com.cn", "openings": 1 },
-  { "uid": "1f25294f-26ab-4ff8-8dac-b3a059a6a9bc", "companyName": "Photolist", "avatar": "https://robohash.org/ettemporibusdolorem.png??size=72x72&set=set1", "url": "http://liveinternet.ru", "openings": 2 },
-  { "uid": "590f5602-3e88-47ca-8232-6fd86b86813d", "companyName": "Youfeed", "avatar": "https://robohash.org/sedrepellendusnatus.png??size=72x72&set=set1", "url": "http://java.com", "openings": 1 },
-  { "uid": "8cda3df6-2fcd-43f7-bbba-0604ebc3d68b", "companyName": "Dabshots", "avatar": "https://robohash.org/estaspernatursequi.png??size=72x72&set=set1", "url": "https://newsvine.com", "openings": 1 },
-  { "uid": "d812a2c1-cb52-4346-a031-6108e651c0f1", "companyName": "Skiptube", "avatar": "https://robohash.org/dolorumfacilislabore.png??size=72x72&set=set1", "url": "http://stanford.edu", "openings": 10 },
-  { "uid": "cdb3cf21-538d-4262-80d0-c6d41880fb6d", "companyName": "Jaxworks", "avatar": "https://robohash.org/reiciendisblanditiiseveniet.png??size=72x72&set=set1", "url": "https://1und1.de", "openings": 1 },
-  { "uid": "28ae71de-b7a4-4633-adf6-082e4f333bde", "companyName": "Yabox", "avatar": "https://robohash.org/illumvoluptatemsaepe.png??size=72x72&set=set1", "url": "http://reverbnation.com", "openings": 9 },
-  { "uid": "2b614b74-cbfd-4e79-b110-7175b45bb3a7", "companyName": "Mybuzz", "avatar": "https://robohash.org/ipsumvelitqui.png??size=72x72&set=set1", "url": "http://berkeley.edu", "openings": 9 },
-  { "uid": "d4cbcc6e-9a12-46df-a3a2-4c450b472367", "companyName": "Topicstorm", "avatar": "https://robohash.org/dolorrepellatnumquam.png??size=72x72&set=set1", "url": "http://mayoclinic.com", "openings": 3 },
-  { "uid": "7a40cab7-38cd-4a63-8bb1-c2ad924f3c1d", "companyName": "Skivee", "avatar": "https://robohash.org/nonidea.png??size=72x72&set=set1", "url": "http://trellian.com", "openings": 4 },
-  { "uid": "3bde9e4e-3a82-4ab5-b5dc-52149af5e078", "companyName": "Chatterbridge", "avatar": "https://robohash.org/voluptatesnamnatus.png??size=72x72&set=set1", "url": "http://ustream.tv", "openings": 3 }];
+  const topCompanies = [
+    { 
+      "uid": "365cdb16-7e2a-4e51-8f93-9eda295b5f92", 
+      "companyName": "ReferrFarm & Co.", 
+      "avatar": "https://www.referrfarm.com/assets/images/logo-white.png", 
+      "url": "https://www.referrfarm.com/", 
+      "openings": 4 
+    },
+    { 
+      "uid": "e2b9257b-cbd1-4b60-ab41-e7c7a9c7c363", 
+      "companyName": "Microsoft", 
+      "avatar": "https://logo.clearbit.com/microsoft.com", 
+      "url": "https://careers.microsoft.com", 
+      "openings": 32 
+    },
+    { 
+      "uid": "a3f8c421-9b2d-4f56-8e71-d4b9c8a1f234", 
+      "companyName": "Amazon", 
+      "avatar": "https://logo.clearbit.com/amazon.com", 
+      "url": "https://amazon.jobs", 
+      "openings": 89 
+    },
+    { 
+      "uid": "b7d2e891-3c4a-4d67-9f82-e5c6d7f8a9b0", 
+      "companyName": "Meta", 
+      "avatar": "", 
+      "url": "https://metacareers.com", 
+      "openings": 28 
+    },
+    { 
+      "uid": "c9e4f123-5d6b-4e78-a091-f7d8e9a1b2c3", 
+      "companyName": "Netflix", 
+      "avatar": "", 
+      "url": "https://jobs.netflix.com", 
+      "openings": 15 
+    }
+  ];
 
   const feedbacks = [
     {
@@ -156,11 +215,11 @@ export default function Home() {
           className="relative overflow-hidden rounded-lg bg-gradient-to-br from-black to-[#5AE3A9] p-8 text-center text-white shadow-lg md:p-16 lg:p-20"
           aria-labelledby="top-referrers-heading"
         >
-          <div className="relative z-10 mx-auto max-w-4xl space-y-4">
+          <div className="relative z-10 mx-auto max-w-4xl space-y-4 flex flex-col items-center justify-center">
             <h3 id="top-referrers-heading" className="text-3xl font-medium tracking-tight md:text-5xl">
               How Referrals Change the Game
             </h3>
-            <ul className="text-lg text-balance font-bold opacity-80 sm:text-xl">
+            <ul className="text-lg text-balance font-bold opacity-80 sm:text-xl text-left">
               <li><Asterisk className="inline-block mr-2" /> 40% of hires come through referrals (LinkedIn data)</li>
               <li><Asterisk className="inline-block mr-2" /> Referred candidates are hired 55% faster</li>
               <li><Asterisk className="inline-block mr-2" /> 4x higher chance of getting an interview</li>
@@ -171,7 +230,8 @@ export default function Home() {
         {/* Top Referrers Section */}
         <section className="max-w-screen-xl py-8 lg:py-16 lg:pt-28" aria-labelledby="top-referrers-heading">
           <h2 id="top-referrers-heading" className="mb-2 text-2xl font-extrabold tracking-tight md:text-5xl xl:text-4xl">
-            Top Referrers This Month
+            Most Active Referrers
+            {/* Top Referrers This Month */}
           </h2>
           <p className="mb-4 text-gray-600">
             These professionals have helped the most job seekers land interviews. Connect with active referrers at your target companies.
@@ -235,6 +295,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <NewsletterSection />
+
       </main>
       <AppFooter />
     </>
